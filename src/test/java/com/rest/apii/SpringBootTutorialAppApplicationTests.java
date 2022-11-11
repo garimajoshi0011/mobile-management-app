@@ -1,0 +1,13 @@
+package com.rest.apii;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class SpringBootTutorialAppApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
