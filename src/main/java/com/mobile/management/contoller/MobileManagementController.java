@@ -20,13 +20,13 @@ public class MobileManagementController {
 	@Autowired
 	private MobileManagementService mobilemgmtService;
 
-	@RequestMapping(value = "/add-user-product", method = RequestMethod.POST)
-	public String createMobileMgmtDTO(@RequestBody UserProductDTO userProductDTO) {
+	@RequestMapping(value = "/add-userproduct", method = RequestMethod.POST)
+	public String createUserProduct(@RequestBody UserProductDTO userProductDTO) {
 		mobilemgmtService.createMobile(userProductDTO);
 		return "Data entered successfully";
 	}
 
-	@RequestMapping(value = "/show-list-user-product", method = RequestMethod.GET)
+	@RequestMapping(value = "/show-list-userproduct", method = RequestMethod.GET)
 	public List<UserProductDTO> getAll() {
 		List<UserProductDTO> all = this.mobilemgmtService.getAllMobile();
 		return all;
@@ -56,10 +56,6 @@ public class MobileManagementController {
 		return productDTO;
 	}
 
-	/*@RequestMapping(value = "/showlistproduct", method = RequestMethod.GET)
-	public List<ProductDTO> getAll() {
-		List<ProductDTO> all = mobilemgmtService.getAll();
-		return all;
-	}*/
+
 
 }

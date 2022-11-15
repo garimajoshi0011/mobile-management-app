@@ -1,60 +1,91 @@
 package com.mobile.management.entities;
 
-
 import javax.persistence.*;
-
+import java.util.Date;
 
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class User {
 
-    private String name;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private Integer age;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	@Column(name = "user_name")
+	private String userName;
+	@Column(name = "user_email")
+	private String userEmail;
+	private Integer age;
+	@Column(name = "created_by")
+	private Date createdBy;
+	@Column(name = "created_date")
+	private Date createdDate;
+	@Column(name = "updated_by")
+	private Date updatedBy;
+	@Column(name = "updated_date")
+	private Date updatedDate;
 
-    private String password;
+	public Integer getId() {
+		return id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public User(String name, Integer id, Integer age, String password) {
-        this.name = name;
-        this.id = id;
-        this.age = age;
-        this.password = password;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public User() {
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getUserEmail() {
+		return userEmail;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getAge() {
+		return age;
+	}
 
-    public Integer getAge() {
-        return age;
-    }
+	public void setAge(Integer age) {
+		this.age = age;
+	}
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+	public Date getCreatedBy() {
+		return createdBy;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setCreatedBy(Date createdBy) {
+		this.createdBy = createdBy;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public Date getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(Date updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public void setUpdatedDate(Date updatedDate) {
+		this.updatedDate = updatedDate;
+	}
+
 }

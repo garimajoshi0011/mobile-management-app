@@ -25,26 +25,28 @@ public class MobileManagementServiceimpl implements MobileManagementService {
 	@Autowired
 	private ProductRepository productRepository;
 
-	public void createMobile(UserProductDTO mobileMgmtDTO) {
-		UserProduct mobileMgmt = new UserProduct();
-		User user = new User();
-		Product product = new Product();
-		mobileMgmt.setName(mobileMgmtDTO.getName());
-		mobileMgmt.setAbout(mobileMgmtDTO.getAbout());
-		mobileMgmt.setPrice(mobileMgmtDTO.getPrice());
-		//mobileMgmt.setProductId(mobileMgmtDTO.getProductId());
-		//mobileMgmt.setUserId(mobileMgmtDTO.getUserId());
-		user.setAge(mobileMgmtDTO.getUser().getAge());
-		user.setName(mobileMgmtDTO.getUser().getName());
-		user.setPassword(mobileMgmtDTO.getUser().getPassword());
-		user.setId(mobileMgmtDTO.getUser().getId());
-		product.setBrand(mobileMgmtDTO.getProduct().getBrand());
-		product.setColour(mobileMgmtDTO.getProduct().getColour());
-		product.setPrice(mobileMgmtDTO.getProduct().getPrice());
-		product.setId(mobileMgmtDTO.getProduct().getId());
-		mobileMgmt.setUserId(user);
-		mobileMgmt.setProductId(product);
-		userProductRepository.save(mobileMgmt);
+	public void createMobile(UserProductDTO userProductDTO) {
+		UserProduct userProduct = new UserProduct();
+		//User user = new User();
+		BeanUtils.copyProperties(userProductDTO,userProduct);
+		userProductRepository.save(userProduct);
+
+
+//		userProduct.setUserName(userProductDTO.getUserName());
+//		userProduct.setPrice(userProductDTO.getPrice());
+//		//userProduct.setProductId(userProductDTO.getProductId());
+//		//userProduct.setUserId(userProductDTO.getUserId());
+//		user.setAge(userProductDTO.getUser().getAge());
+//		user.setUserName(userProductDTO.getUser().getName());
+//		user.setPassword(userProductDTO.getUser().getPassword());
+//		user.setId(userProductDTO.getUser().getId());
+//		product.setBrand(userProductDTO.getProduct().getBrand());
+//		product.setColour(userProductDTO.getProduct().getColour());
+//		product.setPrice(userProductDTO.getProduct().getPrice());
+//		product.setId(userProductDTO.getProduct().getId());
+//		userProduct.setUserId(user);
+//		userProduct.setProductId(product);
+//		userProductRepository.save(userProduct);
 
 	}
 
@@ -55,15 +57,13 @@ public class MobileManagementServiceimpl implements MobileManagementService {
 
 	public List<UserProductDTO> getAllMobile() {
 		List<UserProduct> all = this.userProductRepository.findAll();
-		List<UserProductDTO> mobileMgmtDTOS = new ArrayList();
-		for (UserProduct mobileMgmt : all) {
-			UserProductDTO mobileMgmtDTO = new UserProductDTO();
-			mobileMgmtDTO.setPrice(mobileMgmt.getPrice());
-			mobileMgmtDTO.setName(mobileMgmt.getName());
-			mobileMgmtDTO.setAbout(mobileMgmt.getAbout());
-			mobileMgmtDTOS.add(mobileMgmtDTO);
+		List<UserProductDTO> userProductDTOS = new ArrayList();
+		for (UserProduct userProduct : all) {
+			UserProductDTO userProductDTO = new UserProductDTO();
+			BeanUtils.copyProperties(userProduct,userProductDTO);
+			userProductDTOS.add(userProductDTO);
 		}
-		return mobileMgmtDTOS;
+		return userProductDTOS;
 	}
 
 	public Product create(ProductDTO productDTO) {

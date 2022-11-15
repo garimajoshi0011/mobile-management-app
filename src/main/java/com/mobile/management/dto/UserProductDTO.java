@@ -5,27 +5,46 @@ import com.mobile.management.entities.User;
 
 public class UserProductDTO {
 
-	private String name;
-	private String about;
+	private String userName;
+
+	private String userEmail;
+
+	private String productName;
+
 	private double price;
-	private int age;
-	private Product product;
-	private User user;
 
-	public String getName() {
-		return name;
+	private String description;
+
+	private String brand;
+
+	private String colour;
+
+	private String modelNo;
+
+	private String simType;
+
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public String getAbout() {
-		return about;
+	public String getUserEmail() {
+		return userEmail;
 	}
 
-	public void setAbout(String about) {
-		this.about = about;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 	public double getPrice() {
@@ -36,28 +55,43 @@ public class UserProductDTO {
 		this.price = price;
 	}
 
-	public int getAge() {
-		return age;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public Product getProduct() {
-		return product;
+	public String getBrand() {
+		return brand;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 
-	public User getUser() {
-		return user;
+	public String getColour() {
+		return colour;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setColour(String colour) {
+		this.colour = colour;
 	}
 
+	public String getModelNo() {
+		return modelNo;
+	}
+
+	public void setModelNo(String modelNo) {
+		this.modelNo = modelNo;
+	}
+
+	public String getSimType() {
+		return simType;
+	}
+
+	public void setSimType(String simType) {
+		this.simType = simType;
+	}
 }

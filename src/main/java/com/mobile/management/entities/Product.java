@@ -1,93 +1,78 @@
 package com.mobile.management.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Table(name="products")
+@Table(name = "products")
 public class Product {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer id;
+	@Column(name = "product_name")
+	private String productName;
+	private Double price;
+	private String description;
+	private String brand;
+	private String colour;
+	private String userName;
 
-@Column(name = "product_name")
-private String productName;
-private Double price;
+	public Integer getId() {
+		return id;
+	}
 
-private String description;
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-private String brand;
+	public String getProductName() {
+		return productName;
+	}
 
-private String colour;
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
 
-@Column(name = "model_no")
-private String modelNo;
+	public Double getPrice() {
+		return price;
+	}
 
-@Column(name = "sim_type")
-private String simType;
+	public void setPrice(Double price) {
+		this.price = price;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public String getProductName() {
-        return productName;
-    }
+	public String getBrand() {
+		return brand;
+	}
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
 
-    public Double getPrice() {
-        return price;
-    }
+	public String getColour() {
+		return colour;
+	}
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+	public void setColour(String colour) {
+		this.colour = colour;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getColour() {
-        return colour;
-    }
-
-    public void setColour(String colour) {
-        this.colour = colour;
-    }
-
-    public String getModelNo() {
-        return modelNo;
-    }
-
-    public void setModelNo(String modelNo) {
-        this.modelNo = modelNo;
-    }
-
-    public String getSimType() {
-        return simType;
-    }
-
-    public void setSimType(String simType) {
-        this.simType = simType;
-    }
 }
