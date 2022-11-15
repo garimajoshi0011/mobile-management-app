@@ -1,6 +1,6 @@
 package com.mobile.management.dto;
 
-import com.mobile.management.entities.Product;
+import com.mobile.management.entities.Mobile;
 import com.mobile.management.entities.User;
 
 public class UserProductDTO {
@@ -9,7 +9,7 @@ public class UserProductDTO {
 	private String about;
 	private double price;
 	private int age;
-	private Product product;
+	private Mobile product;
 	private User user;
 
 	public String getName() {
@@ -44,11 +44,11 @@ public class UserProductDTO {
 		this.age = age;
 	}
 
-	public Product getProduct() {
+	public Mobile getProduct() {
 		return product;
 	}
 
-	public void setProduct(Product product) {
+	public void setProduct(Mobile product) {
 		this.product = product;
 	}
 

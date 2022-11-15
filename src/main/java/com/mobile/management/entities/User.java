@@ -1,60 +1,79 @@
 package com.mobile.management.entities;
 
+import java.util.List;
 
 import javax.persistence.*;
 
-
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class User {
 
-    private String name;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private Integer age;
+	@Id
+	@GeneratedValue
+	private Integer id;
+	private String name;
+	private String email;
+	private String gender;
+	
+	@OneToMany(targetEntity = Mobile.class, cascade = CascadeType.ALL)
+	@JoinColumn(name="mu_fk", referencedColumnName = "id")
+	private List<Mobile> mobiles;
 
-    private String password;
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
 
-    public String getName() {
-        return name;
-    }
+	User(Integer id, String name, String email, String gender) {
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.gender = gender;
+	}
 
-    public User(String name, Integer id, Integer age, String password) {
-        this.name = name;
-        this.id = id;
-        this.age = age;
-        this.password = password;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public User() {
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public Integer getAge() {
-        return age;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+	public String getGender() {
+		return gender;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public List<Mobile> getMobiles() {
+		return mobiles;
+	}
+
+	public void setMobiles(List<Mobile> mobiles) {
+		this.mobiles = mobiles;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", gender=" + gender + "]";
+	}
+
 }

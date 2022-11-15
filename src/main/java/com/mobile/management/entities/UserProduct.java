@@ -15,7 +15,7 @@ public class UserProduct {
 
     @ManyToOne
     @JoinColumn(name="product_id" , referencedColumnName="id", nullable= true)
-    private Product productId;
+    private Mobile productId;
     
     private String name;
     private String about;
@@ -39,11 +39,11 @@ public class UserProduct {
         this.userId = userId;
     }
 
-    public Product getProductId() {
+    public Mobile getProductId() {
         return productId;
     }
 
-    public void setProductId(Product productId) {
+    public void setProductId(Mobile productId) {
         this.productId = productId;
     }
 

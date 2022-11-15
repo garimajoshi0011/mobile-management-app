@@ -3,28 +3,17 @@ package com.mobile.management.services;
 
 import java.util.List;
 
-import com.mobile.management.dto.UserProductDTO;
-import com.mobile.management.dto.ProductDTO;
-import com.mobile.management.entities.UserProduct;
-import com.mobile.management.entities.Product;
+import com.mobile.management.dto.MobileResponseDto;
+import com.mobile.management.entities.User;
 
 public interface MobileManagementService {
 
-    void createMobile(UserProductDTO mobileMgmtDTO);
+    public User placeUser(User user);
     
-    UserProduct getMobileById(long id);
+    public List<User> findAllUserMobiles();
     
-    List<UserProductDTO> getAllMobile();
-
-    Product create(ProductDTO productDTO);
-
-    void update(ProductDTO productDTO, int productDTO_id);
-
-    void delete(int productId);
-
-    List<ProductDTO> getAll();
-
-    ProductDTO getProductDetail(int productId);
-
+    public List<MobileResponseDto> getAllMobileWithUser();
+    
+    public List<MobileResponseDto> getAllMobileWithUser1();
 }
 

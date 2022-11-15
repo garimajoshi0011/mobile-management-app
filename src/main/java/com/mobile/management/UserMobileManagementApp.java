@@ -3,11 +3,11 @@ package com.mobile.management;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages= {"com.rest.api"})
-public class SpringBootTutorialAppApplication {
+@SpringBootApplication(scanBasePackages= {"com.mobile.management"})
+public class UserMobileManagementApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootTutorialAppApplication.class, args);
+		SpringApplication.run(UserMobileManagementApp.class, args);
 	}
 
 }
