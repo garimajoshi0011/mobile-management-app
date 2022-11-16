@@ -27,27 +27,23 @@ public class MobileManagementServiceimpl implements MobileManagementService {
 
 	public void createMobile(UserProductDTO userProductDTO) {
 		UserProduct userProduct = new UserProduct();
-		//User user = new User();
-		BeanUtils.copyProperties(userProductDTO,userProduct);
+		User user = new User();
+		Product product = new Product();
+		userProduct.setProductName(userProductDTO.getProductName());
+		userProduct.setDescription(userProductDTO.getDescription());
+		userProduct.setPrice(userProductDTO.getPrice());
+		user.setUserName(userProductDTO.getUserName());
+		product.setBrand(userProductDTO.getBrand());
+		product.setColour(userProductDTO.getColour());
+		product.setPrice(userProductDTO.getPrice());
+		userProduct.setUserId(user);
+		userProduct.setProductId(product);
 		userProductRepository.save(userProduct);
+	}
 
-
-//		userProduct.setUserName(userProductDTO.getUserName());
-//		userProduct.setPrice(userProductDTO.getPrice());
-//		//userProduct.setProductId(userProductDTO.getProductId());
-//		//userProduct.setUserId(userProductDTO.getUserId());
-//		user.setAge(userProductDTO.getUser().getAge());
-//		user.setUserName(userProductDTO.getUser().getName());
-//		user.setPassword(userProductDTO.getUser().getPassword());
-//		user.setId(userProductDTO.getUser().getId());
-//		product.setBrand(userProductDTO.getProduct().getBrand());
-//		product.setColour(userProductDTO.getProduct().getColour());
-//		product.setPrice(userProductDTO.getProduct().getPrice());
-//		product.setId(userProductDTO.getProduct().getId());
-//		userProduct.setUserId(user);
-//		userProduct.setProductId(product);
-//		userProductRepository.save(userProduct);
-
+	public List<ProductDTO> getMobileByBrand(String brandName) {
+		List<Product> products = this.productRepository.findByBrand(brandName);
+		return getProductDTO(products);
 	}
 
 	public UserProduct getMobileById(long id) {
@@ -92,8 +88,14 @@ public class MobileManagementServiceimpl implements MobileManagementService {
 
 	public List<ProductDTO> getAll() {
 		List<Product> all = productRepository.findAll();
+
+		return getProductDTO(all);
+	}
+
+
+	List<ProductDTO> getProductDTO(List<Product> products){
 		List<ProductDTO> ProductDTOS = new ArrayList();
-		for (Product product : all) {
+		for (Product product : products) {
 			ProductDTO productDTO = new ProductDTO();
 			productDTO.setPrice(product.getPrice());
 			productDTO.setDescription(product.getDescription());
@@ -102,7 +104,9 @@ public class MobileManagementServiceimpl implements MobileManagementService {
 			product.setColour(productDTO.getColour());
 			ProductDTOS.add(productDTO);
 		}
+
 		return ProductDTOS;
+
 	}
 
 	public ProductDTO getProductDetail(int productId) {

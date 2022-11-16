@@ -24,6 +24,7 @@ public interface MobileManagementService {
 
     List<ProductDTO> getAll();
 
+    public List<ProductDTO> getMobileByBrand(String brandName);
     ProductDTO getProductDetail(int productId);
 
 }

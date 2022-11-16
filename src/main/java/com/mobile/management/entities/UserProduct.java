@@ -34,6 +34,8 @@ public class UserProduct {
 	@Column(name = "created_by")
 	private String createdBy;
 
+	private String description;
+
 	public Long getId() {
 		return id;
 	}
@@ -146,4 +148,11 @@ public class UserProduct {
 		this.createdBy = createdBy;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

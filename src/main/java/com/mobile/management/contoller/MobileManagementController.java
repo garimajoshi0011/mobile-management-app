@@ -56,6 +56,10 @@ public class MobileManagementController {
 		return productDTO;
 	}
 
-
-
+	@RequestMapping(value = "/get-product-bybrand", method = RequestMethod.GET)
+	public List<ProductDTO> getByBrand(@RequestParam String brandName) {
+		List<ProductDTO> all = this.mobilemgmtService.getMobileByBrand(brandName);
+		return all;
+	}
+//&brand=samsung
 }
